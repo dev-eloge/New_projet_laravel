@@ -1,0 +1,48 @@
+services:
+  - type: web
+    name: laravel-app
+    env: php
+    buildCommand: 'composer install'
+    startCommand: 'php artisan serve --host 0.0.0.0 --port 8080'
+    envVars:
+      - key: APP_NAME
+        value: Laravel
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        value: base64:{{randomBase64 32}}  # Remplace cette valeur par une clé valide
+      - key: APP_DEBUG
+        value: 'false'
+      - key: APP_URL
+        value: 'https://{{hostname}}'
+      - key: APP_TIMEZONE
+        value: UTC
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: DB_DATABASE
+        value: /database/database.sqlite  # Chemin vers ton fichier SQLite
+      - key: MAIL_MAILER
+        value: smtp
+      - key: MAIL_HOST
+        value: smtp.mailtrap.io  # Remplace par ton propre serveur SMTP
+      - key: MAIL_PORT
+        value: '2525'
+      - key: MAIL_USERNAME
+        value: {{mail.username}}
+      - key: MAIL_PASSWORD
+        value: {{mail.password}}
+      - key: MAIL_FROM_ADDRESS
+        value: hello@example.com
+      - key: MAIL_FROM_NAME
+        value: '{{APP_NAME}}'
+      - key: CACHE_STORE
+        value: redis
+      - key: REDIS_HOST
+        value: {{redis.hostname}}
+      - key: REDIS_PASSWORD
+        value: null
+      - key: REDIS_PORT
+        value: 6379
+    plan: starter
+    regions:
+      - oregon
