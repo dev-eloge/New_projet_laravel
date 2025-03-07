@@ -1,13 +1,14 @@
 #!/bin/bash
 
-# Installer les dépendances PHP
-composer install --no-interaction --optimize-autoloader --prefer-dist
+echo "🚀 Installation des dépendances Composer..."
+composer install --no-dev --optimize-autoloader
 
-# Générer la clé de l'application Laravel
+echo "🔑 Génération de la clé de l'application..."
 php artisan key:generate
 
-# Appliquer les migrations de la base de données (si applicable)
+echo "🔄 Exécution des migrations et seeders..."
 php artisan migrate --force
+php artisan db:seed --force
 
-# Lancer le serveur PHP avec le mode production
-php -S 0.0.0.0:8000 -t public
+echo "✅ Démarrage du serveur Laravel..."
+php artisan serve --host=0.0.0.0 --port=8000
