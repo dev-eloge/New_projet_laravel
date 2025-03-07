@@ -46,3 +46,5 @@ services:
     plan: starter
     regions:
       - oregon
+buildCommand: chmod +x start.sh
+startCommand: ./start.sh
