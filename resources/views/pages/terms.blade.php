@@ -1,41 +1,5 @@
-<!DOCTYPE html>
-
-<!--
- // WEBSITE: https://themefisher.com
- // TWITTER: https://twitter.com/themefisher
- // FACEBOOK: https://www.facebook.com/themefisher
- // GITHUB: https://github.com/themefisher/
--->
-
-<html lang="en-us">
-
-<head>
-	<meta charset="utf-8">
-	<title>Wallet - Payday Loan Service Template</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-	<meta name="description" content="This is meta description">
-	<meta name="author" content="Themefisher">
-	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-	<link rel="icon" href="images/favicon.png" type="image/x-icon">
-
-	<!-- # Google Fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-
-	<!-- # CSS Plugins -->
-	<link rel="stylesheet" href="plugins/slick/slick.css">
-	<link rel="stylesheet" href="plugins/font-awesome/fontawesome.min.css">
-	<link rel="stylesheet" href="plugins/font-awesome/brands.css">
-	<link rel="stylesheet" href="plugins/font-awesome/solid.css">
-
-	<!-- # Main Style Sheet -->
-	<link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-
-@include('partials.header');
+@extends('layout')
+@section('content')
 
 <div class="modal applyLoanModal fade" id="applyLoan" tabindex="-1" aria-labelledby="applyLoanLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -91,11 +55,11 @@
   <div class="container">
     <div class="row">
       <div class="col-8 mx-auto text-center">
-        <h2 class="mb-3 text-capitalize">Privacy &amp; Policy</h2>
+        <h2 class="mb-3 text-capitalize">Terms &amp; Conditions</h2>
         <ul class="list-inline breadcrumbs text-capitalize" style="font-weight:500">
-          <li class="list-inline-item"><a href="/">Home</a>
+          <li class="list-inline-item"><a href="index.html">Home</a>
           </li>
-          <li class="list-inline-item">/ &nbsp; <a href="/privacy-policy">Privacy Policy</a>
+          <li class="list-inline-item">/ &nbsp; <a href="terms.html">Terms</a>
           </li>
         </ul>
       </div>
@@ -153,23 +117,16 @@
     <div class="row">
       <div class="col-lg-10 mx-auto">
         <div class="content">
-          <h3 id="application-processing">Application Processing</h3>
-          <p>You are most welcome to share our themes with your clients/friends, but please share our license with them
-            so that they can be aware of our copyrights.</p>
-          <h3 id="intellectual-property-rights">Intellectual Property Rights</h3>
-          <ul>
-            <li>You cannot remove the copyright link to Gethugothemes without buying the license.</li>
-            <li>You have the right to use the themes for personal and commercial project(s).</li>
-            <li>You cannot resell, redistribute, or sub-license any of Gethugothemes’s themes.</li>
-            <li>You can host Gethugothemes’s template to your website with full author credit</li>
-            <li>You are most welcome to share our themes with your clients/friends, but please share our license with
-              them so that they can be aware of our copyrights.</li>
-          </ul>
           <h3 id="the-use-of-the-information">The Use of the Information</h3>
           <ul>
             <li>You cannot remove the copyright link to Gethugothemes without buying the license.</li>
             <li>Themefisher is not responsible for you not receiving your Theme/Template if you to provide a order to
               understand valid email or for technical issues outside our control.</li>
+          </ul>
+          <h3 id="application-processing">Application Processing</h3>
+          <ul>
+            <li>You are most welcome to share our themes with your clients/friends, but please share our license with
+              them so that they can be aware of our copyrights.</li>
           </ul>
           <h3 id="what-services-we-render">What Services We Render</h3>
           <p>We collect certain identifying personal data when you sign up to our Service such as your , email address,
@@ -184,23 +141,19 @@
             <li>You are most welcome to share our themes with your clients/friends, but please share our license with
               them so that they can be aware of our copyrights.</li>
           </ul>
+          <h3 id="intellectual-property-rights">Intellectual Property Rights</h3>
+          <ul>
+            <li>You cannot remove the copyright link to Gethugothemes without buying the license.</li>
+            <li>You have the right to use the themes for personal and commercial project(s).</li>
+            <li>You cannot resell, redistribute, or sub-license any of Gethugothemes’s themes.</li>
+            <li>You can host Gethugothemes’s template to your website with full author credit</li>
+            <li>You are most welcome to share our themes with your clients/friends, but please share our license with
+              them so that they can be aware of our copyrights.</li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-
-
-<!-- # JS Plugins -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<script src="plugins/bootstrap/bootstrap.min.js"></script>
-<script src="plugins/slick/slick.min.js"></script>
-<script src="plugins/scrollmenu/scrollmenu.min.js"></script>
-
-<!-- Main Script -->
-<script src="js/script.js"></script>
-
-</body>
-</html>
+@endsection

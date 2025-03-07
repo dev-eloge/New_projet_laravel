@@ -5,52 +5,52 @@ use Illuminate\Support\Facades\Route;
 
 // template
 Route::get('/', function () {
-    return view('theme/home');
+    return view('pages/home');
 });
 
 Route::get('/a-propos', function () {
-    return view('theme/about');
+    return view('pages/about');
 })->name("about");
 
 Route::get('/blog-details', function () {
-    return view('theme/blog-details');
+    return view('pages/blog-details');
 })->name("blog-details");
 
 Route::get('/blog', function () {
-    return view('theme/blog');
+    return view('pages/blog');
 })->name("blog");
 
 Route::get('/contact', function () {
-    return view('theme/contact');
+    return view('pages/contact');
 })->name("contact");
 
 Route::get('/faq', function () {
-    return view('theme/faq');
+    return view('pages/faq');
 })->name("faq");
 
 Route::get('/comment-ca-marche', function () {
-    return view('theme/how-it-works');
+    return view('pages/how-it-works');
 })->name("how-it-works");
 
 Route::get('/legal', function () {
-    return view('theme/legal');
+    return view('pages/legal');
 })->name("legal");
 
 Route::get('/privacy-policy', function () {
-    return view('theme/privacy-policy');
+    return view('pages/privacy-policy');
 })->name("privacy-policy");
 
 Route::get('/service-details', function () {
-    return view('theme/service-details');
+    return view('pages/service-details');
 })->name("service-details");
 
 Route::get('/services', function () {
-    return view('theme/services');
+    return view('pages/services');
 })->name("services");
 
 
 Route::get('/terms', function () {
-    return view('theme/terms');
+    return view('pages/terms');
 })->name("terms");
 
 
