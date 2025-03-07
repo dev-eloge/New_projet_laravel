@@ -2,15 +2,17 @@ services:
   - type: web
     name: laravel-app
     env: php
-    buildCommand: 'composer install'
-    startCommand: 'php artisan serve --host 0.0.0.0 --port 8080'
+    buildCommand: |
+      composer install
+      chmod +x start.sh
+    startCommand: ./start.sh
     envVars:
       - key: APP_NAME
         value: Laravel
       - key: APP_ENV
         value: production
       - key: APP_KEY
-        value: base64:{{randomBase64 32}}  # Remplace cette valeur par une clé valide
+        value: base64:{{randomBase64 32}}  # Remplace cette valeur par une vraie clé
       - key: APP_DEBUG
         value: 'false'
       - key: APP_URL
@@ -20,11 +22,11 @@ services:
       - key: DB_CONNECTION
         value: sqlite
       - key: DB_DATABASE
-        value: /database/database.sqlite  # Chemin vers ton fichier SQLite
+        value: /database/database.sqlite
       - key: MAIL_MAILER
         value: smtp
       - key: MAIL_HOST
-        value: smtp.mailtrap.io  # Remplace par ton propre serveur SMTP
+        value: smtp.mailtrap.io  # Remplace par ton serveur SMTP
       - key: MAIL_PORT
         value: '2525'
       - key: MAIL_USERNAME
@@ -46,5 +48,3 @@ services:
     plan: starter
     regions:
       - oregon
-buildCommand: chmod +x start.sh
-startCommand: ./start.sh
