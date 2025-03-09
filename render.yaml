@@ -5,6 +5,7 @@ services:
     buildCommand: |
       composer install
       chmod +x start.sh
+       touch database/database.sqlite
     startCommand: ./start.sh
     envVars:
       - key: APP_NAME
