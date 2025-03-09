@@ -1,14 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
+echo "Running composer"
+composer install --no-dev --working-dir=/var/www/html
 
-echo "🚀 Installation des dépendances Composer..."
-composer install --no-dev --optimize-autoloader
+echo "Caching config..."
+php artisan config:cache
 
-echo "🔑 Génération de la clé de l'application..."
-php artisan key:generate
+echo "Caching routes..."
+php artisan route:cache
 
-echo "🔄 Exécution des migrations et seeders..."
+echo "Running migrations..."
 php artisan migrate --force
-php artisan db:seed --force
-
-echo "✅ Démarrage du serveur Laravel..."
-php artisan serve --host=0.0.0.0 --port=8000
