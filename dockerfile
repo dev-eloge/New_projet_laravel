@@ -1,26 +1,20 @@
-# Utilisez une image PHP officielle
-FROM php:8.2-cli
-
-# Définissez le répertoire de travail
-WORKDIR /app
-
-# Copiez les fichiers du projet dans le conteneur
-COPY . .
-
-# Installez les dépendances système nécessaires pour Laravel
-RUN apt-get update && apt-get install -y \
-    git \
-    unzip \
-    && docker-php-ext-install pdo_mysql
-
-# Installez Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-# Installez les dépendances du projet
-RUN composer install --no-dev --optimize-autoloader
-
-# Exposez le port 8000
-EXPOSE 8000
-
-# Démarrez le serveur Laravel
-CMD ["./start.sh"]
+FROM richarvey/nginx-php-fpm:1.7.2
+ 
+ COPY . .
+ 
+ # Image config
+ ENV SKIP_COMPOSER 1
+ ENV WEBROOT /var/www/html/public
+ ENV PHP_ERRORS_STDERR 1
+ ENV RUN_SCRIPTS 1
+ ENV REAL_IP_HEADER 1
+ 
+ # Laravel config
+ ENV APP_ENV production
+ ENV APP_DEBUG false
+ ENV LOG_CHANNEL stderr
+ 
+ # Allow composer to run as root
+ ENV COMPOSER_ALLOW_SUPERUSER 1
+ 
+ CMD ["/start.sh"]
